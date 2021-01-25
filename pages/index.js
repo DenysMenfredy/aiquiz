@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import GitHubCorner from '../components/GitHubCorner';
 import QuizBackground from '../components/QuizBackground';
 import QuizLogo from '../components/QuizLogo';
+import Head from 'next/head';
 
 const Title = styled.h1`
   font-size: 50px;
@@ -33,6 +34,12 @@ export const QuizContainer = styled.div`
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+      <title>AI QUIZ</title>
+      <meta property="og:title" content="AI QUIZ" key="title" />
+      <meta property="og:image" content={db.bg} />
+    </Head>
+
       <QuizContainer>
         <Widget>
           <Widget.Header>
