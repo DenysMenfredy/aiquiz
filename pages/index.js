@@ -1,16 +1,12 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import React, { useState, useEffect} from 'react';
 import db from '../db.json';
 import Widget from '../components/Widget';
 import Footer from '../components/Footer';
 import GitHubCorner from '../components/GitHubCorner';
 import QuizBackground from '../components/QuizBackground';
 import QuizLogo from '../components/QuizLogo';
-import Head from 'next/head';
-
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
+import { useRouter } from 'next/router';
 
 // const BackgroundImage = styled.div`
 //   background-image: url(${db.bg});
@@ -30,28 +26,35 @@ export const QuizContainer = styled.div`
   }
 `;
 
-
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = useState('');
+
+
+  function handleUser(e) {
+    e.preventDefault();
+    console.log(name);
+    
+    router.push(`/quiz?nome=${name}`);
+  }
+
   return (
     <QuizBackground backgroundImage={db.bg}>
-      <Head>
-      <title>AI QUIZ</title>
-      <meta property="og:title" content="AI QUIZ" key="title" />
-      <meta property="og:image" content={db.bg} />
-    </Head>
-
       <QuizContainer>
         <Widget>
           <Widget.Header>
             <h1>Inteligência Artificial</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>Lorem Ipsum</p>
+            <form onSubmit={handleUser}>
+              <input placeholder="Informe seu nome" onChange={e => setName(e.target.value)} />
+              <button type="submit" disabled={name.length === 0}>Jogar</button>
+            </form>
           </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/DenysMenfredy" />
     </QuizBackground>
-  ) 
+  );
 }
