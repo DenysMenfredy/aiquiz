@@ -9,59 +9,8 @@ import QuizBackground from '../../src/components/QuizBackground';
 import QuizContainer from '../../src/components/QuizContainer';
 import QuizLogo from '../../src/components/QuizLogo';
 import QuestionWidget from '../../src/components/QuestionWidget';
-
-function ResultWidget({ results }) {
-  return (
-    <Widget>
-      <Widget.Header>
-        Tela de Resultado:
-      </Widget.Header>
-
-      <Widget.Content>
-        <p>
-          Você acertou
-          {' '}
-          {/* {results.reduce((somatoriaAtual, resultAtual) => {
-          const isAcerto = resultAtual === true;
-          if (isAcerto) {
-            somatoriaAtual += 1;
-          }
-          return somatoriaAtual;
-        }, 0)} */}
-          {results.filter((x) => x).length}
-          {' '}
-          perguntas
-        </p>
-        <ul>
-          {results.map((result, index) => (
-            <li>
-              #
-              {index + 1}
-              {' '}
-              Resultado:
-              {' '}
-              {result === true ? 'acertou' : 'errou'}
-            </li>
-          ))}
-        </ul>
-      </Widget.Content>
-    </Widget>
-  );
-}
-
-function LoadingWidget() {
-  return (
-    <Widget>
-      <Widget.Header>
-        Carregando...
-      </Widget.Header>
-
-      <Widget.Content>
-        [Desafio do loading]
-      </Widget.Content>
-    </Widget>
-  );
-}
+import LoadingWidget from '../../src/components/LoadingWidget';
+import ResultWidget from '../../src/components/ResultWidget';
 
 function Quiz() {
   const screenStates = {
@@ -86,7 +35,7 @@ function Quiz() {
   useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 1 * 3000);
   }, []);
 
   function handleSubmitQuiz() {

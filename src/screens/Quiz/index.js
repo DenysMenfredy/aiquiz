@@ -10,59 +10,8 @@ import QuizBackground from '../../components/QuizBackground';
 import QuizContainer from '../../components/QuizContainer';
 import QuizLogo from '../../components/QuizLogo';
 import QuestionWidget from '../../components/QuestionWidget';
-
-function ResultWidget({ results }) {
-  return (
-    <Widget>
-      <Widget.Header>
-        Tela de Resultado:
-      </Widget.Header>
-
-      <Widget.Content>
-        <p>
-          Você acertou
-          {' '}
-          {/* {results.reduce((somatoriaAtual, resultAtual) => {
-          const isAcerto = resultAtual === true;
-          if (isAcerto) {
-            somatoriaAtual += 1;
-          }
-          return somatoriaAtual;
-        }, 0)} */}
-          {results.filter((x) => x).length}
-          {' '}
-          perguntas
-        </p>
-        <ul>
-          {results.map((result, index) => (
-            <li>
-              #
-              {index + 1}
-              {' '}
-              Resultado:
-              {' '}
-              {result === true ? 'acertou' : 'errou'}
-            </li>
-          ))}
-        </ul>
-      </Widget.Content>
-    </Widget>
-  );
-}
-
-function LoadingWidget() {
-  return (
-    <Widget>
-      <Widget.Header>
-        Carregando...
-      </Widget.Header>
-
-      <Widget.Content>
-        [Desafio do loading]
-      </Widget.Content>
-    </Widget>
-  );
-}
+import LoadingWidget from '../../components/LoadingWidget';
+import ResultWidget from '../../components/ResultWidget';
 
 function QuizScreen({ externalQuestions, externalBg }) {
   const screenStates = {

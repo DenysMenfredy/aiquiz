@@ -4,25 +4,50 @@
     "description": "Teste os seus conhecimentos sobre Inteligência Artificial",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-        "title": "Como fazer um seletor por id via CSS?",
+        "image": "http://thomasvconti.com.br/wp-content/uploads/2016/08/teste-de-turing-ideologico-brian-caplan-thomas-victor-conti.jpg",
+        "title": "O que é o teste de Turing?",
         "description": "Essa é pra aquecer",
         "answer": 2,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Algoritmo de reconhecimento facial",
+          "Testa a eficiência do modelo",
+          "Test a inteligência da máquina em relação a inteligência humana",
+          "Utilizado para classificar imagens"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
+        "image": "https://miro.medium.com/max/2400/1*moTQGo8MxftdDnf6exPu2w.png",
+        "title": "Pra que serve o algoritmo A*?",
+        "description": "Fácil tbm :)",
+        "answer": 1,
+        "alternatives": [
+           "Usado em problemas de NLP",
+           "Encontra o melhor caminho entre dois nós em um grafo",
+           "Encontra um caminho entre dois nós em um grafo dirigido",
+           "Usado em problemas de classificação binária"
+        ]
+      },
+      {
+        "image": "https://previews.123rf.com/images/allismagic/allismagic1609/allismagic160900015/62610991-neural-net-neuron-network-deep-learning-cognitive-technology-concept-vector-illustration.jpg",
+        "title": "O que são redes neurais?",
+        "description": "Essa é easy :)",
         "answer": 0,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+          "Modelos matemáticos que tentam imitar o funcionamento do cerebro humano",
+          "Classe de algoritmos de machine learning que usa arvores binarias para predição",
+          "Ferramenta utilizada para visualização de dados"
+        ]
+      },
+      {
+        "image": "https://miro.medium.com/max/1080/0*MlWmlEqpyzQA4gjr.jpg",
+        "title": "Pra que serve o Tensorflow?",
+        "description": "pytorch sucks",
+        "answer": 3,
+        "alternatives": [
+          "Plataforma de data science que faz o processamento de conjuntos de dados",
+          "Algoritmo de Deep Learning utilizado para processamento de linguagem natural",
+          "Biblioteca utilizada para plotagem de gráficos",
+          "Framework para computação númerica e machine learning em alta escala"
         ]
       }
     ],
