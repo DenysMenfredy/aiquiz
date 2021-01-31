@@ -1,14 +1,14 @@
 /* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import db from '../db.json';
-import Widget from '../components/Widget';
-import Footer from '../components/Footer';
-import GitHubCorner from '../components/GitHubCorner';
-import QuizBackground from '../components/QuizBackground';
-import QuizContainer from '../components/QuizContainer';
-import QuizLogo from '../components/QuizLogo';
-import QuestionWidget from '../components/QuestionWidget';
+import db from '../../db.json';
+import Widget from '../../src/components/Widget';
+import Footer from '../../src/components/Footer';
+import GitHubCorner from '../../src/components/GitHubCorner';
+import QuizBackground from '../../src/components/QuizBackground';
+import QuizContainer from '../../src/components/QuizContainer';
+import QuizLogo from '../../src/components/QuizLogo';
+import QuestionWidget from '../../src/components/QuestionWidget';
 
 function ResultWidget({ results }) {
   return (
@@ -18,25 +18,31 @@ function ResultWidget({ results }) {
       </Widget.Header>
 
       <Widget.Content>
-        <p>Você acertou
-        {' '}
-         {/* {results.reduce((somatoriaAtual, resultAtual) => {
+        <p>
+          Você acertou
+          {' '}
+          {/* {results.reduce((somatoriaAtual, resultAtual) => {
           const isAcerto = resultAtual === true;
           if (isAcerto) {
             somatoriaAtual += 1;
           }
           return somatoriaAtual;
         }, 0)} */}
-        {results.filter((x)=> x).length}
-        {' '} 
-        perguntas</p>
+          {results.filter((x) => x).length}
+          {' '}
+          perguntas
+        </p>
         <ul>
-          {results.map( (result, index) => {
-            return (
+          {results.map((result, index) => (
             <li>
-              #{index + 1} Resultado: {result === true ? 'acertou' : 'errou'}
+              #
+              {index + 1}
+              {' '}
+              Resultado:
+              {' '}
+              {result === true ? 'acertou' : 'errou'}
             </li>
-          )})}
+          ))}
         </ul>
       </Widget.Content>
     </Widget>
@@ -73,8 +79,8 @@ function Quiz() {
   function addResult(result) {
     setResults([
       ...results,
-       result
-      ]);
+      result,
+    ]);
   }
 
   useEffect(() => {
@@ -86,9 +92,9 @@ function Quiz() {
   function handleSubmitQuiz() {
     const nextQuestion = questionIndex + 1;
     if (nextQuestion < numQuestions) {
-        setQuestionIndex(questionIndex + 1);
+      setQuestionIndex(questionIndex + 1);
     } else {
-        setScreenState(screenStates.RESULT);
+      setScreenState(screenStates.RESULT);
     }
   }
 
@@ -108,7 +114,7 @@ function Quiz() {
 
         { screenState === screenStates.LOADING && <LoadingWidget /> }
 
-        { screenState === screenStates.RESULT && <ResultWidget  results={results}/> }
+        { screenState === screenStates.RESULT && <ResultWidget results={results} /> }
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/DenysMenfredy" />
